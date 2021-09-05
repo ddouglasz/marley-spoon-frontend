@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import Layout from "../components/Layout";
 
-const RecipeList: NextPage = () => {
+const RecipeDetails: NextPage = () => {
   return (
     <Layout>
-      <div>Recipe Listing Page</div>
+      <div>Recipe Details Page</div>
     </Layout>
   );
 };
 
-export default RecipeList;
+export default RecipeDetails;
