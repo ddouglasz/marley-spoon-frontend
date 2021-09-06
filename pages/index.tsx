@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { getRecipes } from "./api/recipes";
+import { getRecipes } from "../api/recipes";
 import Layout from "../components/Layout";
 
 const RecipeList: NextPage = () => {
@@ -21,6 +22,10 @@ const RecipeList: NextPage = () => {
     fetchRecipes();
   }, []);
 
+  console.log(recipes);
+
+  if (error) return <div>{error}</div>;
+
   if (!recipes.length) {
     return (
       <Layout>
@@ -33,8 +38,16 @@ const RecipeList: NextPage = () => {
     <Layout>
       <div>
         <ul>
-          {recipes.map((recipe: any,i) => (
-            <li key={i}>{recipe.fields.title}</li>
+          {recipes.map((recipe: any, i: number) => (
+            <>
+              <Image
+                src={`http:${recipe.fields.photo.fields.file.url}`}
+                alt="recipe"
+                width={400}
+                height={300}
+              />
+              <li key={i}>{recipe.fields.title}</li>
+            </>
           ))}
         </ul>
       </div>
