@@ -41,28 +41,27 @@ export interface ITags {
 }
 
 export interface IMetadata {
-    tags: any[]
+    tags: ISys[]
+}
+export interface IDetails {
+    image: {
+        height: number
+        width: number
+    }
+    size: number
+    fileName: string
+    url: string
 }
 
 export interface IPhoto {
     fields: {
         file: {
             contentType: string
-            details: {d 
-                image: {
-                    height: number
-                    width: number
-                }
-                size: number
-                fileName: string
-                url: string
-            }
+            details: IDetails
         }
         title: string
     }
-    metadata: {
-        tags: any[]
-    }
+    metadata: IMetadata
     sys: {
         createdAt: string
         environment: IEnvironment

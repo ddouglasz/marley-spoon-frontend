@@ -3,9 +3,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getRecipes } from "../api/recipes";
 import Layout from "../components/Layout";
+import { IRecipes } from "../types/recipes.types";
 
 const RecipeList: NextPage = () => {
-  const [recipes, setRecipes] = useState<any>([]);
+  const [recipes, setRecipes] = useState<IRecipes[]>([]);
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
@@ -36,7 +37,7 @@ const RecipeList: NextPage = () => {
 
   return (
     <Layout>
-      <div>
+      <div className="">
         <ul>
           {recipes.map((recipe: any, i: number) => (
             <>
