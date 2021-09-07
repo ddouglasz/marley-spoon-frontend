@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import { getRecipe } from "../../api/recipes";
 import { IRecipe } from "../../types/recipes.types";
+import Loading from "../../components/Loading";
 
 const RecipeDetails: NextPage = () => {
   const [recipe, setRecipe] = useState<IRecipe>();
@@ -28,13 +29,13 @@ const RecipeDetails: NextPage = () => {
 
   if (error) return <div>An Error Occured{error}</div>; //TODO - Make error component
 
-  if (!recipe) { //TODO - Make loading component
+  if (!recipe) 
     return (
       <Layout>
-        <div>Loading...</div> 
+        <Loading />
       </Layout>
     );
-  }
+  
 
   return (
     <Layout>

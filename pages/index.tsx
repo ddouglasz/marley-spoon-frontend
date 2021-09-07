@@ -8,6 +8,7 @@ import Layout from "../components/Layout";
 import { IRecipe } from "../types/recipes.types";
 import styles from "../styles/index.module.css";
 import Card from "../components/Card";
+import Loading from "../components/Loading";
 
 const RecipeList: NextPage = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
@@ -32,7 +33,7 @@ const RecipeList: NextPage = () => {
   if (!recipes.length) {
     return (
       <Layout>
-        <div>Loading...</div>
+        <Loading />
       </Layout>
     );
   }
