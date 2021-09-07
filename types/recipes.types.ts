@@ -53,12 +53,15 @@ export interface IDetails {
     url: string
 }
 
+interface IFile {
+    contentType: string
+    details: IDetails
+    url: string
+}
+
 export interface IPhoto {
     fields: {
-        file: {
-            contentType: string
-            details: IDetails
-        }
+        file: IFile
         title: string
     }
     metadata: IMetadata
@@ -69,7 +72,7 @@ export interface IPhoto {
     }
 }
 
-export interface IRecipes {
+export interface IRecipe {
     fields: {
         calories: number
         description: string

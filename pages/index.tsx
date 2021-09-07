@@ -1,12 +1,14 @@
+import React from "react";
 import type { NextPage } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getRecipes } from "../api/recipes";
 import Layout from "../components/Layout";
-import { IRecipes } from "../types/recipes.types";
+import { IRecipe } from "../types/recipes.types";
 
 const RecipeList: NextPage = () => {
-  const [recipes, setRecipes] = useState<IRecipes[]>([]);
+  const [recipes, setRecipes] = useState<IRecipe[]>([]);
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
@@ -39,16 +41,20 @@ const RecipeList: NextPage = () => {
     <Layout>
       <div className="">
         <ul>
-          {recipes.map((recipe: any, i: number) => (
-            <>
-              <Image
-                src={`http:${recipe.fields.photo.fields.file.url}`}
-                alt="recipe"
-                width={400}
-                height={300}
-              />
-              <li key={i}>{recipe.fields.title}</li>
-            </>
+          {recipes.map((recipe: IRecipe) => (
+            <li
+              key={recipe.sys.id}
+            >
+              <Link href={`/recipe-details/${recipe.sys.id}`} passHref>
+                <Image
+                  src={`http:${recipe.fields.photo.fields.file.url}`}
+                  alt="recipe"
+                  width={400}
+                  height={300}
+                />
+              </Link>
+              {recipe.fields.title}
+            </li>
           ))}
         </ul>
       </div>
