@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { getRecipes } from "../api/recipes";
 import Layout from "../components/Layout";
 import { IRecipe } from "../types/recipes.types";
+import styles from "../styles/index.module.css";
+import Card from "../components/Card";
 
 const RecipeList: NextPage = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
@@ -25,8 +27,6 @@ const RecipeList: NextPage = () => {
     fetchRecipes();
   }, []);
 
-  console.log(recipes);
-
   if (error) return <div>{error}</div>;
 
   if (!recipes.length) {
@@ -39,22 +39,25 @@ const RecipeList: NextPage = () => {
 
   return (
     <Layout>
-      <div className="">
-        <ul>
+      <div className={styles.recipelist}>
+        <ul className={styles.recipes}>
           {recipes.map((recipe: IRecipe) => (
-            <li
-              key={recipe.sys.id}
-            >
-              <Link href={`/recipe-details/${recipe.sys.id}`} passHref>
-                <Image
-                  src={`http:${recipe.fields.photo.fields.file.url}`}
-                  alt="recipe"
-                  width={400}
-                  height={300}
-                />
-              </Link>
-              {recipe.fields.title}
-            </li>
+            <Card key={recipe.sys.id}>
+              <li
+                className={`${styles.card} ${styles.zoom}`}
+                key={recipe.sys.id}
+              >
+                <Link href={`/recipe-details/${recipe.sys.id}`} passHref>
+                  <Image
+                    src={`http:${recipe.fields.photo.fields.file.url}`}
+                    alt="recipe"
+                    width={400}
+                    height={300}
+                  />
+                </Link>
+                <p>{recipe.fields.title}</p>
+              </li>
+            </Card>
           ))}
         </ul>
       </div>
