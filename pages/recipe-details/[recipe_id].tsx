@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
-import styles from '../../styles/recipe.module.css'
+import styles from "../../styles/recipe.module.css";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import { getRecipe } from "../../api/recipes";
 import { IRecipe } from "../../types/recipes.types";
 import Loading from "../../components/Loading";
+import Error from "../../components/Error";
 
 const RecipeDetails: NextPage = () => {
   const [recipe, setRecipe] = useState<IRecipe>();
@@ -28,15 +29,14 @@ const RecipeDetails: NextPage = () => {
     fetchRecipe();
   }, [recipe_id]);
 
-  if (error) return <div>An Error Occured{error}</div>; //TODO - Make error component
+  if (error) return <Error errorMessage={error} />;
 
-  if (!recipe) 
+  if (!recipe)
     return (
       <Layout>
         <Loading />
       </Layout>
     );
-  
 
   return (
     <Layout>

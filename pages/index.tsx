@@ -9,6 +9,7 @@ import { IRecipe } from "../types/recipes.types";
 import styles from "../styles/index.module.css";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 const RecipeList: NextPage = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
@@ -28,7 +29,7 @@ const RecipeList: NextPage = () => {
     fetchRecipes();
   }, []);
 
-  if (error) return <div>{error}</div>;
+  if (error) return <Error errorMessage={error} />;
 
   if (!recipes.length) {
     return (
