@@ -10,6 +10,7 @@ import styles from "../styles/index.module.css";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
+import { formatString } from "../utils/FormatString";
 
 const RecipeList: NextPage = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
@@ -44,11 +45,8 @@ const RecipeList: NextPage = () => {
       <div className={styles.recipelist}>
         <ul className={styles.recipes}>
           {recipes.map((recipe: IRecipe) => (
-            <Card key={recipe.sys.id}>
-              <li
-                className={`${styles.card} ${styles.zoom}`}
-                key={recipe.sys.id}
-              >
+            <Card classes={styles.card} key={recipe.sys.id}>
+              <li className={styles.zoom} key={recipe.sys.id}>
                 <Link href={`/recipe-details/${recipe.sys.id}`} passHref>
                   <Image
                     src={`http:${recipe.fields.photo.fields.file.url}`}
@@ -57,7 +55,14 @@ const RecipeList: NextPage = () => {
                     height={300}
                   />
                 </Link>
-                <p>{recipe.fields.title}</p>
+                <h3 className={styles.card_title}>
+                  {formatString(recipe.fields.title, "with")[0]}
+                </h3>
+                <h4 className={styles.card_title}>
+                  {formatString(recipe.fields.title, "with")[1]
+                    ? "With" + formatString(recipe.fields.title, "with")[1]
+                    : ""}
+                </h4>
               </li>
             </Card>
           ))}
