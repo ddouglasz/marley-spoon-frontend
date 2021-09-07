@@ -4,7 +4,8 @@
 
 ## Getting Started
 
-**_1. Environmental variables:_** 
+**_1. Environmental variables:_**
+
 - Start by checking the `.env.example` for the keys to each of the .env settings needed.
 
 - Create a `.env.local` and add the expected keys and provide their respective values to start up the app
@@ -19,15 +20,9 @@
 
 - Write more tests.
 
-- Add a loading component.
-
 - Improve on adding types to my methods and jsx. Leaving types on `any` or `//@ts-ignore` is not good practice.
 
 - Work more on responsiveness.
-
-- Improve the UI features and invest more time in the css styling.
-
-- Better error handling - showing the user a clearer and more descriptive error message.
 
 - Add CI/CD functionality.
 
@@ -36,6 +31,7 @@
 ```
 - main
 - development
-- initial app layout
+- initial-app-layout
 - feat/data-fetching
+- feat/styling
 ```
