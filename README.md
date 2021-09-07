@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Recipes App
+
+- A simple app that consumes a contentful Api to display a list of recipes and recipe details. This application is built using React (Nextjs Framework).
 
 ## Getting Started
 
-First, run the development server:
+**_1. Environmental variables:_** 
+- Start by checking the `.env.example` for the keys to each of the .env settings needed.
 
-```bash
-npm run dev
-# or
-yarn dev
+- Create a `.env.local` and add the expected keys and provide their respective values to start up the app
+
+**_2. Install all dependencies:_** To install all dependencies, run `Yarn`
+
+**_3. Start App:_** run `yarn dev` to start the development server and open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+**_4. Tests:_** to run tests, use `yarn test`.
+
+### THINGS TO IMPROVE/TODO
+
+- Write more tests.
+
+- Add a loading component.
+
+- Improve on adding types to my methods and jsx. Leaving types on `any` or `//@ts-ignore` is not good practice.
+
+- Work more on responsiveness.
+
+- Improve the UI features and invest more time in the css styling.
+
+- Better error handling - showing the user a clearer and more descriptive error message.
+
+- Add CI/CD functionality.
+
+## BRANCHES
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- main
+- development
+- initial app layout
+- feat/data-fetching
+```
