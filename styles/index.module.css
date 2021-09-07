@@ -1,0 +1,28 @@
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+}
+
+.recipelist {
+  padding: 50px;
+}
+
+.zoom {
+  position: relative;
+  overflow: hidden;
+}
+
+.zoom:hover img {
+  cursor: pointer;
+  transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+}
+
+.zoom img {
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
