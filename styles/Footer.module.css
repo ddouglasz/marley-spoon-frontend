@@ -19,5 +19,10 @@
 }
 
 .footer_text {
+  color: #28b88d;
+  cursor: pointer;
+}
+
+.footer_text:hover {
   color: #47d7ac;
 }

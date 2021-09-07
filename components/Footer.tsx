@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <span className={styles.footer_text}>Marley Spoon</span>
+      <Link href="/" passHref><span className={styles.footer_text}>Marley Spoon</span></Link>
       <a
         href="https://github.com/ddouglasz/marley-spoon-frontend"
         target="_blank"
