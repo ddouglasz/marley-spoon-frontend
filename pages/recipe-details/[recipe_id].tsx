@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import styles from '../../styles/recipe.module.css'
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
@@ -39,7 +40,7 @@ const RecipeDetails: NextPage = () => {
 
   return (
     <Layout>
-      <div>{recipe.fields.title}</div>
+      <div className={styles.recipe}>{recipe.fields.title}</div>
     </Layout>
   );
 };
