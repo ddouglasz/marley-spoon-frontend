@@ -16,7 +16,7 @@ const RecipeDetails: NextPage = () => {
   const [error, setError] = useState<string>("");
 
   const router = useRouter();
-  const { recipe_id }: any = router.query!; // TODO- provide proper type
+  const { recipe_id }: any = router.query; // TODO- provide proper type
 
   useEffect(() => {
     async function fetchRecipe() {
@@ -41,8 +41,6 @@ const RecipeDetails: NextPage = () => {
       </Layout>
     );
 
-  console.log(recipe.fields.tags);
-
   return (
     <Layout>
       <div className={styles.recipe_container}>
@@ -52,7 +50,7 @@ const RecipeDetails: NextPage = () => {
           width={600}
           height={400}
         />
-        <div>
+        <div className={styles.recipe_details}>
           <span className={`${styles.recipe_title} ${styles.recipe_span}`}>
             {formatString(recipe.fields.title, "with")[0]}
           </span>
@@ -61,6 +59,32 @@ const RecipeDetails: NextPage = () => {
               ? "With" + formatString(recipe.fields.title, "with")[1]
               : ""}
           </span>
+
+          <div className={styles.field_container}>
+            <span className={styles.field}>Chef Name:</span>{" "}
+            <span>
+              {recipe.fields.chef ? recipe.fields.chef.fields.name : "N/A"}
+            </span>
+          </div>
+          <div className={styles.field_container}>
+            <span className={styles.field}>Calories:</span>{" "}
+            <span>
+              {recipe.fields.calories ? recipe.fields.calories : "N/A"}
+            </span>
+          </div>
+
+          <div className={styles.tags_container}>
+            <span>
+              {recipe.fields.tags
+                ? recipe.fields.tags.map((tag) => (
+                    <span key={tag.sys.id} className={styles.tags_span}>
+                      {tag.fields.name.toUpperCase()}
+                    </span>
+                  ))
+                : ""}
+            </span>
+          </div>
+          <div className={styles.description}>{recipe.fields.description}</div>
         </div>
       </div>
     </Layout>

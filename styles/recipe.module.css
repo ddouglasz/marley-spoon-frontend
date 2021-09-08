@@ -15,6 +15,10 @@
   font-weight: 700;
 }
 
+.recipe_details {
+  margin: 30px 0;
+}
+
 .recipe_title {
   font-size: 24px;
   color: #47d7ac;
@@ -23,4 +27,34 @@
 .recipe_subtitle {
   font-size: 16px;
   color: #808080;
+}
+
+.field_container {
+  margin-top: 20px;
+  color: #808080;
+}
+
+.field {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tags_container {
+  margin: 40px 0;
+}
+
+.tags_span {
+  padding: 10px;
+  border: solid #eaeaea 1px;
+  border-radius: 10px;
+  color: #808080;
+  margin-right: 10px;
+}
+
+.description {
+  color: #716d6a;
+  font-size: 18px;
+  margin-top: 40px;
+  width: 600px;
+  line-height: 2;
 }
