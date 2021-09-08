@@ -30,6 +30,7 @@ const RecipeList: NextPage = () => {
     fetchRecipes();
   }, []);
 
+
   if (error) return <Error errorMessage={error} />;
 
   if (!recipes.length) {
