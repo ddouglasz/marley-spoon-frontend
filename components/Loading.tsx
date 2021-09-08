@@ -1,9 +1,10 @@
 import Image from "next/image";
+import styles from "../styles/loading.module.css";
 
 const Loading = () => {
   return (
-    <div>
-      <Image src="/loading.gif" alt="Vercel Logo" width={600} height={600} />
+    <div className={styles.loading}>
+      <Image src="/loading.gif" alt="Vercel Logo" width={300} height={250} />
     </div>
   );
 };

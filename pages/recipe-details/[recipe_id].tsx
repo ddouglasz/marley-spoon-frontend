@@ -8,7 +8,6 @@ import { IRecipe } from "../../types/recipes.types";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
 import Image from "next/image";
-import Card from "../../components/Card";
 import { formatString } from "../../utils/FormatString";
 
 const RecipeDetails: NextPage = () => {
@@ -16,7 +15,7 @@ const RecipeDetails: NextPage = () => {
   const [error, setError] = useState<string>("");
 
   const router = useRouter();
-  const { recipe_id }: any = router.query; // TODO- provide proper type
+  const recipe_id: string = router.query.recipe_id as string;
 
   useEffect(() => {
     async function fetchRecipe() {
