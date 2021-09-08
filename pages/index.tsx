@@ -1,6 +1,5 @@
 import React from "react";
 import type { NextPage } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getRecipes } from "../api/recipes";
@@ -30,7 +29,6 @@ const RecipeList: NextPage = () => {
     fetchRecipes();
   }, []);
 
-
   if (error) return <Error errorMessage={error} />;
 
   if (!recipes.length) {
@@ -48,22 +46,22 @@ const RecipeList: NextPage = () => {
           {recipes.map((recipe: IRecipe) => (
             <Card classes={styles.card} key={recipe.sys.id}>
               <li className={styles.zoom} key={recipe.sys.id}>
-                <Link href={`/recipe-details/${recipe.sys.id}`} passHref>
+                <a href={`/recipe-details/${recipe.sys.id}`}>
                   <Image
                     src={`http:${recipe.fields.photo.fields.file.url}`}
                     alt="recipe"
                     width={400}
                     height={300}
                   />
-                </Link>
-                <h3 className={styles.card_title}>
-                  {formatString(recipe.fields.title, "with")[0]}
-                </h3>
-                <h4 className={styles.card_title}>
-                  {formatString(recipe.fields.title, "with")[1]
-                    ? "With" + formatString(recipe.fields.title, "with")[1]
-                    : ""}
-                </h4>
+                  <h3 className={styles.card_title}>
+                    {formatString(recipe.fields.title, "with")[0]}
+                  </h3>
+                  <h4 className={styles.card_title}>
+                    {formatString(recipe.fields.title, "with")[1]
+                      ? "With" + formatString(recipe.fields.title, "with")[1]
+                      : ""}
+                  </h4>
+                </a>
               </li>
             </Card>
           ))}
