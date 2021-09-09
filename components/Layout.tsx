@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/layout.module.css";
 import Header from "../components/Header";
