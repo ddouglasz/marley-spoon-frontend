@@ -1,8 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import FIXTURES from "./fixtures";
 import React from "react";
+import FIXTURES from "./fixtures";
 import { render, screen } from "@testing-library/react";
 import Card from "../components/Card";
 
