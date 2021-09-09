@@ -1,0 +1,18 @@
+.header {
+  text-align: center;
+  border-bottom: #eaeaea 1px solid;
+  width: 100%;
+}
+
+.header h1 {
+  color: #28b88d;
+  cursor: pointer;
+}
+
+.header h1:hover {
+  color: #47d7ac;
+}
+
+.header h2 {
+  color: #ffdc4d;
+}

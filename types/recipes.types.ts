@@ -72,9 +72,18 @@ export interface IPhoto {
     }
 }
 
+interface IChef {
+    fields: {
+        name: string
+    }
+    metadata: IMetadata
+    sys: ISys
+}
+
 export interface IRecipe {
     fields: {
         calories: number
+        chef: IChef
         description: string
         photo: IPhoto
         tags: ITags[]
