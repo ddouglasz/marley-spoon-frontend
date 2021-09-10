@@ -9,7 +9,7 @@ import styles from "../styles/index.module.css";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
-import { formatString } from "../utils/formatString";
+import { formatString } from "../utils/FormatString";
 const RecipeList: NextPage = () => {
   const [recipes, setRecipes] = useState<IRecipe[] | any>([]);
   const [error, setError] = useState<string>("");

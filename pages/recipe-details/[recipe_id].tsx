@@ -8,7 +8,7 @@ import { IRecipe, ITags } from "../../types/recipes.types";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
 import Image from "next/image";
-import { formatString } from "../../utils/formatString";
+import { formatString } from "../../utils/FormatString";
 
 const RecipeDetails: NextPage = () => {
   const [recipe, setRecipe] = useState<IRecipe | any>();
