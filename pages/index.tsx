@@ -17,8 +17,7 @@ const RecipeList: NextPage = () => {
   useEffect(() => {
     async function fetchRecipes() {
       try {
-        const recipesData = await getRecipes();
-
+        const recipesData = await getRecipes()
         setRecipes(recipesData);
       } catch (error) {
         setError(error);
@@ -28,12 +27,12 @@ const RecipeList: NextPage = () => {
     fetchRecipes();
   }, []);
 
-  if (error) return <Error errorMessage={error} />;
+  if (error) return <Error data-testid="error" errorMessage={error} />;
 
   if (!recipes.length) {
     return (
       <Layout>
-        <Loading />
+        <Loading data-testid="loading" />
       </Layout>
     );
   }
@@ -41,11 +40,11 @@ const RecipeList: NextPage = () => {
   return (
     <Layout>
       <div className={styles.recipelist}>
-        <ul className={styles.recipes}>
+        <ul data-testid="recipe" className={styles.recipes}>
           {recipes.map((recipe: IRecipe) => (
             <Card classes={styles.card} key={recipe.sys.id}>
-              <li className={styles.zoom} key={recipe.sys.id}>
-                <a href={`/recipe-details/${recipe.sys.id}`}>
+              <a href={`/recipe-details/${recipe.sys.id}`}>
+                <li className={styles.zoom} key={recipe.sys.id}>
                   <Image
                     src={`http:${recipe.fields.photo.fields.file.url}`}
                     alt="recipe"
@@ -60,8 +59,8 @@ const RecipeList: NextPage = () => {
                       ? "With" + formatString(recipe.fields.title, "with")[1]
                       : ""}
                   </h4>
-                </a>
-              </li>
+                </li>
+              </a>
             </Card>
           ))}
         </ul>

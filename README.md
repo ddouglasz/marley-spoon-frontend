@@ -18,16 +18,6 @@
 **_4. Tests:_** to run tests, run `yarn test`.
 
 
-
-### THINGS TO IMPROVE/TODO
-
-- Write more tests.
-
-- Improve on adding types to my methods and jsx. Leaving types on `any` or `//@ts-ignore` is not good practice.
-
-- Add CI/CD functionality.
-
-
 ## FOLDER STRUCTURE TO NOTE
 
 ***api***
@@ -98,3 +88,12 @@ Folder consists of reusable components listed below:
 - feat/styling
 - feat/tests
 ```
+
+
+### THINGS TO IMPROVE/TODO
+
+- Write more tests.
+
+- Improve on adding types to my methods and jsx. Leaving types on `any` or `//@ts-ignore` is not good practice.
+
+- If page was large I would optimise for pagination but the list of items at this point a really few so pagination would only seem like overengineering on the project.

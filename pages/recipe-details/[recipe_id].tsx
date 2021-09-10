@@ -44,7 +44,7 @@ const RecipeDetails: NextPage = () => {
     <Layout>
       <div className={styles.recipe_container}>
         <Image
-          src={`http:${recipe.fields.photo.fields.file.url}`}
+          src={`http:${recipe?.fields.photo.fields.file.url}`}
           alt="recipe"
           width={600}
           height={400}
