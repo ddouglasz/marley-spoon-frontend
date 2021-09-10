@@ -7,13 +7,10 @@ import {
   act,
   render,
   screen,
-  waitForElementToBeRemoved,
 } from "@testing-library/react";
 import RecipeList from "../pages/index";
 import FIXTURES from "./fixtures";
 import * as recipeApi from "../api/recipes";
-
-import { setHookState } from "./hooksState";
 
 (recipeApi.getRecipes as jest.Mock) = jest
   .fn()

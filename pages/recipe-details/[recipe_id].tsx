@@ -35,14 +35,14 @@ const RecipeDetails: NextPage = () => {
 
   if (!recipe)
     return (
-      <Layout>
-        <Loading />
+      <Layout >
+        <Loading data-testid="loading"/>
       </Layout>
     );
 
   return (
     <Layout>
-      <div className={styles.recipe_container}>
+      <div data-testid="recipe" className={styles.recipe_container}>
         <Image
           src={`http:${recipe?.fields.photo.fields.file.url}`}
           alt="recipe"
