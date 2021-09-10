@@ -9,7 +9,7 @@ interface IChildren {
 
 const Layout = ({ children }: IChildren) => {
   return (
-    <div className={styles.container}>
+    <div data-testid="layout" className={styles.container}>
       <Head>
         <title>MS app</title>
         <meta name="description" content="Simple Recipe app" />

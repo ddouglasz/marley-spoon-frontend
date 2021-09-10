@@ -6,7 +6,7 @@ interface IErrorMessage {
 }
 
 const Error = ({ errorMessage }: IErrorMessage) => {
-  return <div className={styles.error}>An error occured: <span>{errorMessage}</span></div>;
+  return <div data-testid="error" className={styles.error}>An error occured: <span>{errorMessage}</span></div>;
 };
 
 export default Error;

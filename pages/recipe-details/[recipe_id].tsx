@@ -4,45 +4,47 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import { getRecipe } from "../../api/recipes";
-import { IRecipe } from "../../types/recipes.types";
+import { IRecipe, ITags } from "../../types/recipes.types";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
 import Image from "next/image";
 import { formatString } from "../../utils/formatString";
 
 const RecipeDetails: NextPage = () => {
-  const [recipe, setRecipe] = useState<IRecipe>();
+  const [recipe, setRecipe] = useState<IRecipe | any>();
   const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
 
   const router = useRouter();
-  const recipe_id: string = router.query.recipe_id as string;
+  const recipe_id = router.query.recipe_id as string;
 
   useEffect(() => {
     async function fetchRecipe() {
       try {
         const recipeData = await getRecipe(recipe_id);
-
         setRecipe(recipeData);
+        setError("");
+        setLoading(false);
       } catch (error) {
-        setError(error);
+        setError(error.message);
       }
     }
 
     fetchRecipe();
   }, [recipe_id]);
 
-  if (error) return <Error errorMessage={error} />;
-
   if (!recipe)
     return (
       <Layout>
-        <Loading />
+        <Loading data-testid="loading" />
       </Layout>
     );
 
+  if (error) return <Error errorMessage={error} />;
+
   return (
     <Layout>
-      <div className={styles.recipe_container}>
+      <div data-testid="recipe" className={styles.recipe_container}>
         <Image
           src={`http:${recipe.fields.photo.fields.file.url}`}
           alt="recipe"
@@ -75,7 +77,7 @@ const RecipeDetails: NextPage = () => {
           <div className={styles.tags_container}>
             <span>
               {recipe.fields.tags
-                ? recipe.fields.tags.map((tag) => (
+                ? recipe.fields.tags.map((tag: ITags) => (
                     <span key={tag.sys.id} className={styles.tags_span}>
                       {tag.fields.name.toUpperCase()}
                     </span>
