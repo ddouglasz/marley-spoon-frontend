@@ -5,7 +5,7 @@ interface ICardProps {
 }
 
 const Card = ({ children, classes }: ICardProps) => {
-  return <div className={classes}>{children}</div>;
+  return <div data-testid="card" className={classes}>{children}</div>;
 };
 
 export default Card;
