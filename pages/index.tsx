@@ -11,16 +11,16 @@ import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { formatString } from "../utils/formatString";
 const RecipeList: NextPage = () => {
-  const [recipes, setRecipes] = useState<IRecipe[]>([]);
+  const [recipes, setRecipes] = useState<IRecipe[] | any>([]);
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
     async function fetchRecipes() {
       try {
-        const recipesData = await getRecipes()
+        const recipesData  = await getRecipes()
         setRecipes(recipesData);
       } catch (error) {
-        setError(error);
+        setError(error.message);
       }
     }
 

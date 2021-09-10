@@ -7,17 +7,16 @@ export const getRecipes = async () => {
         const recipes = recipesResponse.items.filter((recipe: any) => recipe.fields.description)
         return recipes
     } catch (error) {
-        return error.data
+        throw error
     }
 }
 
 export const getRecipe = async (recipeId: string) => {
     try {
         const recipeResponse = await contentfulClient.getEntry(recipeId)
-
         return recipeResponse
     } catch (error) {
-        return error.data
+        throw error
     }
 }
 
