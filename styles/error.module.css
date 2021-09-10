@@ -1,0 +1,8 @@
+.error {
+  text-align: center;
+  padding: 20% 0;
+}
+
+.error span {
+  color: #ff0000;
+}
