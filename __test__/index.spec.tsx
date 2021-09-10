@@ -1,8 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import React, { useState } from "react";
-const reactMock = require("react");
+import React from "react";
 import {
   act,
   render,
