@@ -8,7 +8,7 @@ import { IRecipe, ITags } from "../../types/recipes.types";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
 import Image from "next/image";
-import { formatString } from "../../utils/FormatString";
+import { formatString } from "../../utils/formatString";
 
 const RecipeDetails: NextPage = () => {
   const [recipe, setRecipe] = useState<IRecipe | any>();
@@ -26,7 +26,7 @@ const RecipeDetails: NextPage = () => {
         setError("");
         setLoading(false);
       } catch (error) {
-        setError(error.message);
+          setError("No resource found");
       }
     }
 

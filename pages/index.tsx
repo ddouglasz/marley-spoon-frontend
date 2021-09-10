@@ -9,7 +9,7 @@ import styles from "../styles/index.module.css";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
-import { formatString } from "../utils/FormatString";
+import { formatString } from "../utils/formatString";
 const RecipeList: NextPage = () => {
   const [recipes, setRecipes] = useState<IRecipe[] | any>([]);
   const [error, setError] = useState<string>("");
@@ -17,10 +17,10 @@ const RecipeList: NextPage = () => {
   useEffect(() => {
     async function fetchRecipes() {
       try {
-        const recipesData  = await getRecipes()
+        const recipesData = await getRecipes();
         setRecipes(recipesData);
       } catch (error) {
-        setError(error.message);
+        setError("No resource found");
       }
     }
 
